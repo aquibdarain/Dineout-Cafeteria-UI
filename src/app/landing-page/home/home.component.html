@@ -1,0 +1,35 @@
+<ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators" [pauseOnHover]="pauseOnHover"
+[pauseOnFocus]="pauseOnFocus">
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <div class="banner1 d-flex justify-content-center align-items-center kenburns-top">
+                <p class="text-light h1 dancing-script">Discover the best food</p>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper dancing-script">
+            <div class="banner2 d-flex justify-content-center align-items-center kenburns-top">
+                <p class="text-light h1">Discover the best food</p>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper dancing-script">
+            <div class="banner3 d-flex justify-content-center align-items-center kenburns-top">
+                <p class="text-light h1">Discover the best food</p>
+            </div>
+        </div>
+    </ng-template>
+</ngb-carousel>
+
+<!-- Order-online -->
+<!-- Order-online-end -->
+
+<!-- Gallery -->
+<div class="container-fluid">
+    <app-gallery></app-gallery>
+</div>
+<!-- Gallery-end -->
+
+<app-popular-items></app-popular-items>

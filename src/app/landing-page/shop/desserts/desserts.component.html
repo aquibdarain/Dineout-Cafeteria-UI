@@ -1,0 +1,20 @@
+<div class="container mb-2">
+    <form [formGroup]="DessertForm">
+        <div class="row text-center justify-content-md-center">
+            <div class="col-lg-4 mb-3" *ngFor="let d of Dessert">
+                <div class="card">
+                    <img [src]="d.img" [alt]="d.productName" class="img-fluid">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between px-1" >
+                            <p>{{d.productName}}</p>
+                            <p>Price: ${{d.price}}</p>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-warning rounded-1" (click)="addDessert(d)">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

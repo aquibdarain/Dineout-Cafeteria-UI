@@ -1,0 +1,22 @@
+<div class="container mb-2">
+    <form [formGroup]="pizzaForm">
+        <div class="row text-center justify-content-md-center">
+            <div class="col-lg-4 mb-3" *ngFor="let p of pizza">
+                <div class="card">
+                    <header>
+                        <img [src]="p.img" [alt]="p.productName" class="img-fluid">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between px-1">
+                                <p>{{p.productName}}</p>
+                                <p>Price: ${{p.price}}</p>
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-warning rounded-1" (click)="addPizza(p)">ADD TO CART</button>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

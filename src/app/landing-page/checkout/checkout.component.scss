@@ -1,0 +1,46 @@
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #ffc11e;
+}
+
+.font-Cormorant{
+    font-family: 'Cormorant', serif;
+}
+
+.checkout{
+    font-weight: 100;
+}
+
+.poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-place-order{
+    background: linear-gradient(180deg, #FFE53B 0%, #f72727 74%);
+    color: white;
+    border-color: white;
+    font-weight: 500;
+    
+}
+
+.btn-upi{
+    background: linear-gradient(180deg, #FFE53B 0%, #FF2525 74%);
+    color: white;
+    border-color: white;
+    font-weight: 500;
+
+}
+
+.btn-close{
+    position: relative;
+    left: 94%;
+}
+
+.modal-footer{
+    justify-content: center;
+}

@@ -1,0 +1,38 @@
+<form [formGroup]="SignUpForm">
+    <div class="poppins">
+        <div class="modal-header bg-red text-white">
+            <h5 class="modal-title">Sign In</h5>
+            <button type="button" class="btn-close text-white" aria-label="Close"
+                (click)="activeModal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <div class="my-3">
+                <input type="text" formControlName="firstName" class="form-control rounded-3"
+                    placeholder="First name">
+                    <small class="text-danger" *ngIf="firstName && firstName.invalid && firstName.touched">This field is required</small>
+            </div>
+            <div class="my-3">
+                <input type="text" formControlName="lastName" class="form-control rounded-3"
+                    placeholder="Last name">
+                    <small class="text-danger" *ngIf="lastName && lastName.invalid && lastName.touched">This field is required</small>
+            </div>
+            <div class="my-3">
+                <input type="number" formControlName="phone" class="form-control rounded-3"
+                    placeholder="Mobile number">
+                    <small class="text-danger" *ngIf="phone && phone.invalid && phone.touched">Mobile number should be 10 digit</small>
+            </div>
+            <div class="my-3">
+                <input type="email" formControlName="email" class="form-control rounded-3" placeholder="Email">
+                <small class="text-danger" *ngIf="email && email.invalid && email.touched">Plz.. Enter valid email</small>
+            </div>
+            <div class="my-3">
+                <input type="password" formControlName="password" class="form-control rounded-3"
+                    placeholder="Set password">
+                    <small class="text-danger" *ngIf="password && password.invalid && password.touched">This field is required</small>
+            </div>
+            <div class="d-grid">
+                <button class="btn bg-red text-white" [disabled]="SignUpForm.invalid" (click)="signUp()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</form>

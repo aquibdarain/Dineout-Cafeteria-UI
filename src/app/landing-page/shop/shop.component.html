@@ -1,0 +1,18 @@
+<div *ngFor="let b of banner" class="dancing-script">
+    <div [class]="b" *ngIf="b==item">
+        <div class="shop pt-5 h-100 ">
+            <h1>{{b}}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center text-uppercase py-3">
+    <p class="p-items" (click)="Salads()">Salads</p>
+    <p class="p-items" (click)="Pizza()">Pizza</p>
+    <p class="p-items" (click)="Soups()">Soups</p>
+    <p class="p-items" (click)="Desserts()">Desserts</p>
+</div>
+
+<router-outlet></router-outlet>
+
+

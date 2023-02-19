@@ -1,0 +1,68 @@
+
+<div class="container pt-5 px-5 py-5">
+    <h1 class="my-5 text-center text-uppercase font-Cormorant fw-bold">Cart</h1>
+    <p *ngIf="!this.shopItem.length">You haven't add anything!!</p>
+    <div class="row">
+        <div class="col-lg-9 col-md-12 mb-3">
+            <div class="card">
+                <div class="card-body" *ngFor="let s of shopItem">
+                    <div class="row" *ngIf="s.order">
+                        <div class="col-lg-4 col-md-6">
+                            <img [src]="s.img" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-8 col-md-6">
+                            <form class="form-group">
+                                <p class="poppins">{{s.productName}}</p>
+                                <div class="poppins py-2 pb-5"><span>Price:</span><strong> ${{s.price}}</strong></div>
+                                <div class="d-flex justify-content-between pt-2 poppins-sans-serif">
+                                    <span>Quantity :
+                                        <Strong><span class="badge text-dark border border-dark rounded-0 p-2 px-3 h1 rounded-2">{{s.quantity}}</span>
+                                            <!-- <input type="number" [value]="s.quantity"> -->
+                                        </Strong>
+                                    </span>
+                                    <strong class="color-red">
+                                        <button class="btn btn-sm remove" (click)="deleteItem(s.id)">
+                                            <i class="fa fa-trash-o pe-2"></i>Remove</button>
+                                    </strong>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="poppins-sans-serif">
+                        <div class="d-flex justify-content-between pt-2">
+                            <span>Subtotal :</span>
+                            <strong class="color-red">${{subtotal}}</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between pt-2">
+                            <span>Tax(5%) :</span>
+                            <strong class="color-red">${{tax}}</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between pt-2">
+                            <span>Shipping :</span>
+                            <strong class="color-red">${{shipping}}</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between pt-2">
+                            <span>Total :</span>
+                            <strong class="color-red">${{total}}</strong>
+                        </div>
+                        <div class="d-grid my-4">
+                            <button (click)="checkout()" class="btn fw-bold btn-checkout" [disabled]="!this.shopItem.length"><i
+                                    class='fas fa-shopping-cart shopping-icon'></i>
+                                Checkout</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

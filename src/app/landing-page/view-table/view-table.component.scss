@@ -1,0 +1,36 @@
+
+.offer {
+    position: fixed;
+    top: 81px;
+    right: 4rem;
+    width: 370px;
+}
+
+.img-responsive {
+    object-fit: cover;
+    object-position: center;
+    height: 370px;
+    border-radius: 5px;
+}
+
+section {
+    background-color: #f4f4f4;
+
+    .left-part {
+        padding-top: 5rem;
+        padding-bottom: 1rem;
+    }
+
+    .about{
+        padding-bottom: 2rem;
+
+        .text-skin{
+            color: #b48e48;
+        }
+
+    }
+
+    .card {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+}

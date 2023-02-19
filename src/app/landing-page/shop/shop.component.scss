@@ -1,0 +1,45 @@
+p:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #ff0018;
+}
+
+.pizza{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../../assets/img/pizza-bg.webp');
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+}
+.salads{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url('../../../assets/img/jay-wennington-N_Y88TWmGwA-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+}
+.soups{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url('../../../assets/img/category-soups.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+}
+.desserts{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('../../../assets/img/dessert-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+}
+
+.shop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.p-items{
+    padding: 2%;
+}
+
+.dancing-script {
+    font-family: 'Dancing Script', cursive;
+}

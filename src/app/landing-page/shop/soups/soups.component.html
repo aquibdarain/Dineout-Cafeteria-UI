@@ -1,0 +1,20 @@
+<div class="container mb-2">
+    <form [formGroup]="SoupForm">
+        <div class="row text-center justify-content-md-center">
+            <div class="col-lg-4 mb-3" *ngFor="let s of soup">
+                <div class="card">
+                    <img [src]="s.img" [alt]="s.productName" class="img-fluid">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between px-1" >
+                            <p>{{s.productName}}</p>
+                            <p>Price: ${{s.price}}</p>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-warning rounded-1" (click)="addSoup(s)">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

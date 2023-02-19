@@ -1,0 +1,198 @@
+<div class="container pt-5 px-5 py-5 poppins">
+    <h1 class="my-5 text-center text-uppercase checkout font-Cormorant">Checkout</h1>
+    <div class="row">
+        <header class="h4 text-uppercase font-Cormorant">Billing Details</header>
+        <div class="container">
+            <form [formGroup]="PayForOrder">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div>
+                            <label for="first-name" required><strong class="text-danger">*</strong> Enter your
+                                name</label>
+                            <input type="text" class="form-control" formControlName="name"
+                                placeholder="Enter your name">
+                            <div class="my-2">
+                                <small class="text-danger" *ngIf="name && name.invalid && name.touched"><span><img
+                                            src="../../../assets/img/corrupt-file.png" width="30px"
+                                            alt="corrupt"></span> Plz..
+                                    Enter Your Name !!</small>
+
+                            </div>
+
+                        </div>
+                        <div>
+                            <label for="address"><strong class="text-danger">*</strong> Street address</label>
+                            <input type="text" class="form-control" placeholder="House number and street number"
+                                formControlName="address">
+                            <div class="my-2">
+                                <small class="text-danger" *ngIf="address && address.invalid && address.touched"><span><img
+                                            src="../../../assets/img/corrupt-file.png" width="30px"
+                                            alt="corrupt"></span> Plz..
+                                    Enter Your Address !!</small>
+
+                            </div>
+
+                        </div>
+                        <label for="phone">
+                            <!-- <strong class="text-danger">*</strong>  -->
+                            Phone
+                        </label>
+                        <input type="number" class="form-control">
+                        <label for="email">
+                            <!-- <strong class="text-danger">*</strong> -->
+                             Email</label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="Order-notes">Order notes (optional)</label>
+                        <textarea name="" cols="30" rows="5" class="form-control"
+                            placeholder="Notes about your order, e.g.special notes for delivery"></textarea>
+                    </div>
+                </div>
+
+                <div class="Order my-4">
+                    <h1 class="text-uppercase text-center text-uppercase font-Cormorant">Your order</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Product</h5>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Subtotal</h5>
+                                </div>
+                                <hr>
+                            </div>
+                            <!-- use ngfor -->
+                            <div class="row" *ngFor="let s of shopData">
+                                <div class="col-6">
+                                    <div>
+                                        <p>{{s.productName}} x<span>{{s.quantity}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <p>${{s.price}}</p>
+                                </div>
+                                <hr>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <p>Pizza Margherita x<span>{{1}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <p>${{15}}</p>
+                                </div>
+                                <hr>
+                            </div> -->
+                            <!-- use ngfor till now -->
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Subtotal</h5>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-warning">${{subtotal}}</p>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Shipping</h5>
+                                </div>
+                                <div class="col-6">
+                                    <p>${{shipping}}</p>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Tax(5%)</h5>
+                                </div>
+                                <div class="col-6">
+                                    <p>${{tax}}</p>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>Total</h5>
+                                </div>
+                                <div class="col-6">
+                                    <p>${{total}}</p>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="row p-3 mt-3">
+                                <div class="card rounded-0">
+                                    <div class="card-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" checked type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1" (click)="place_order()">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Cash on delivery
+                                            </label>
+                                        </div>
+                                        <hr>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault2" (click)="upi()">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                <span class="pe-2">UPI</span> <img src="../../../assets/img/upi.png"
+                                                    width="40px" alt="upi-img">
+                                            </label>
+                                            <span class="ps-2"><a
+                                                    href="https://www.npci.org.in/what-we-do/upi/product-overview"
+                                                    target="_blank">What is UPI?</a></span>
+                                            <p *ngIf="this.UPI">Pay via UPI</p>
+                                            <!-- you can pay with your credit card if you don’t have a UPI account. -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="ms-1 btn btn-place-order rounded-5" *ngIf="this.placeOrder" [disabled]="PayForOrder.invalid"
+                                (click)="paymentAndBilling()">PLACE
+                                ORDER</button><button class=" ms-1 btn btn-upi rounded-5" (click)="open(content)"
+                                *ngIf="this.UPI">PROCEED TO UPI</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <ng-template #content let-modal>
+        <div class="modal-body">
+            <div>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 order-sm-last">
+                            <label for="dateOfBirth">Enter UPI ID</label>
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Enter UPI number" name="dp" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center order-first order-md-last">
+                            <img src="./assets/img/upi.png" width="115px" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-block btn-success" [disabled]="PayForOrder.invalid" (click)="paymentAndBilling()">Verify &
+                Pay</button>
+        </div>
+    </ng-template>
+
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Transaction is pending ...</p>
+    </ngx-spinner>

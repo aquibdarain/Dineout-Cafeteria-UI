@@ -1,0 +1,22 @@
+.card-body{
+    background: #efefef;
+}
+
+button:hover{
+    color: black;
+}
+
+button{
+    color: white;
+}
+
+header {
+    background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8));
+    overflow: hidden;
+}
+
+img {
+   object-fit: cover;
+   opacity: 0.75;
+   background-image: url(../../../../assets/img/pizza-1.jpeg);
+}

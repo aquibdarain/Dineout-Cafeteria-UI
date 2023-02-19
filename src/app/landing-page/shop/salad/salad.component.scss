@@ -1,0 +1,21 @@
+.card-body{
+    background: #efefef;
+}
+
+button:hover{
+    color: black;
+}
+
+button{
+    color: white;
+}
+
+header {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,1));
+    overflow: hidden;
+}
+
+img {
+   object-fit: cover;
+   opacity: 0.8;
+}

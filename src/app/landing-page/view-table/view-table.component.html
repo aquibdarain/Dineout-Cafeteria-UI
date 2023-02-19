@@ -1,0 +1,125 @@
+<section>
+    <div class="container-fluid">
+        <div class="row left-part">
+            <div class="col-9">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="container">
+                            <div class="card">
+                                <img [src]="data['img']" [alt]="data['productName']" class="img-responsive">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column text-start px-1 card-details">
+                                        <h5 class="fw-bold">{{data['productName']}}</h5>
+                                        <p>{{data['description']}}</p>
+                                        <p>₹ {{data['price']}} for 2 (approx) |</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="offer">
+            <div class="card">
+                <div class="card-header bg-dark text-white fw-bold text-center">
+                    <h5>Select an Offer or Deal</h5>
+                </div>
+                <form [formGroup]="reservationForm">
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Enter name</span>
+                            </div>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Enter email</span>
+                            </div>
+                            <input type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control form-select" formControlName="noOfPerson">
+                                <option [value]="null" [disabled]="true">Select No. of Persons</option>
+                                <option [value]="n.name" *ngFor="let n of No_of_person">{{n.name}}</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Select date</span>
+                            </div>
+                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Date" formControlName="date">
+                        </div>
+
+                        <select class="form-control form-select" formControlName="time">
+                            <option [value]="null" [disabled]="true">Select time</option>
+                            <option [value]="t.name" *ngFor="let t of time">{{t.name}}</option>
+                        </select>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row about">
+            <div class="col-9">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="fw-bold mb-3">About</h5>
+                                    <div class="d-flex flex-row text-start px-1 card-details mb-3">
+                                        <span class="mt-2">
+                                            <i><img src="../../../assets/img/about-icon-1.png" width="35px" alt="">
+                                            </i>
+                                        </span>
+                                        <span class="ms-3">
+                                            <div class="fw-bold text-skin">CUISINE</div>
+                                            <div>North Indian, Mughlal, Biryani</div>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex flex-row text-start px-1 card-details mb-3">
+                                        <span class="mt-2">
+                                            <i><img src="../../../assets/img/about-icon-2.png" width="35px" alt="">
+                                            </i>
+                                        </span>
+                                        <span class="ms-3">
+                                            <div class="fw-bold text-skin">Type</div>
+                                            <div>Dineout Pay, Casual Dining</div>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex flex-row text-start px-1 card-details mb-3">
+                                        <span class="mt-2">
+                                            <i><img src="../../../assets/img/about-icon-1.png" width="35px" alt="">
+                                            </i>
+                                        </span>
+                                        <span class="ms-3">
+                                            <div class="fw-bold text-skin">Average cost</div>
+                                            <div>{{data['price']}} for two people</div>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex flex-row text-start px-1 card-details mb-3">
+                                        <span class="mt-2">
+                                            <i><img src="../../../assets/img/about-icon-1.png" width="35px" alt="">
+                                            </i>
+                                        </span>
+                                        <span class="ms-3">
+                                            <div class="fw-bold text-skin">Bestselling items</div>
+                                            <div>Dal Makhani, Chicken Biryani, Chicken Lababdar, Paneer Lababdar, Soya
+                                                Chaap Roll, Non Veg Guldasta.</div>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
