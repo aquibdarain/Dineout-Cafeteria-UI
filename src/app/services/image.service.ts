@@ -12,11 +12,13 @@ export class ImageService {
     ) { }
 
 
-  public uploadImage(image: File){
-    const formData = new FormData();
 
-    formData.append('image', image);
-
-    return this.http.post('/api/v1/image-upload', formData);
+  createCafe(data: any){
+    let url = 'http://localhost:2022/api/addCafe'
+    return this.http.post<any>(url, data)
+  }
+  getCafeDetails(){
+    let url = 'http://localhost:2022/api/getCafeDetails'
+    return this.http.get(url)
   }
 }

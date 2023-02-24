@@ -20,6 +20,10 @@ import { TokenInterceptorService } from '../services/token-interceptor.service';
 import { PopularItemsComponent } from './popular-items/popular-items.component';
 import { ViewTableComponent } from './view-table/view-table.component';
 import { AddCafeComponent } from './add-cafe/add-cafe.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { CafeDetailsComponent } from './cafe-details/cafe-details.component';
+import { appSanitizeHtmlDirective } from '../directive/sanitize-html.directive';
+import { SafeHtmlPipePipe } from '../pipe/safe-html-pipe.pipe';
 
 
 
@@ -46,7 +50,10 @@ var routes: Routes = [
         path: 'view-table', component: ViewTableComponent, canActivate: [AuthGuard]
       },
       {
-        path: 'add-cafe', component: AddCafeComponent, canActivate: [AuthGuard]
+        path: 'add-cafe', component: AddCafeComponent
+      },
+      {
+        path: 'cafe-details', component: CafeDetailsComponent, canActivate: [AuthGuard]
       },
       {
         path: 'view-cart', component: ViewCartComponent, canActivate: [AuthGuard]
@@ -71,6 +78,11 @@ var routes: Routes = [
     PopularItemsComponent,
     CheckoutComponent,
     ViewTableComponent,
+    AddCafeComponent,
+    FileUploadComponent,
+    CafeDetailsComponent,
+    appSanitizeHtmlDirective,
+    SafeHtmlPipePipe
     
   ],
   imports: [

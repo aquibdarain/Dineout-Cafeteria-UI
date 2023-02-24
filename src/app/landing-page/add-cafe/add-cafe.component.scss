@@ -3,6 +3,23 @@
 }
 
 .add-cafe{
-    padding-top: 10rem;
+    padding-top: 5rem;
+    // background-image: url(../../../assets/img/p59990-15625680955d22e59ff0c9e.jpg);
+    .container{
+        .left-part{
+            input{
+                margin-bottom: 1rem;
+            }
+        }
+        .content-height{
+            height: 85vh;
+            align-items: center;
+        }
+        .imageData{
+          border: 1px solid rgb(206, 212, 218);
+          width: 18.9rem;
+          height: 12.6rem;
+        }
+    }
 }
 

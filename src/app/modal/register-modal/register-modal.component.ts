@@ -43,6 +43,13 @@ export class RegisterModalComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.SignUpForm.patchValue({
+      email: "abc@gmail.com",
+      firstName: "abc",
+      lastName: "abc",
+      password: "abc",
+      phone:  7689877899
+    })
   }
 
 
@@ -53,7 +60,7 @@ export class RegisterModalComponent implements OnInit {
       // console.log(success.msg);
       if (success.token) {
         localStorage.setItem('userToken', success.token)
-  
+
         this.toastr.success('Sign In successful !!', 'Success', {
           timeOut: 3000,
         });
@@ -61,7 +68,7 @@ export class RegisterModalComponent implements OnInit {
       }
     }, (err) => {
       // console.log(err.error.msg);
-      this.toastr.error(err.error.msg +'!!', 'Error', {
+      this.toastr.error(err.error.msg + '!!', 'Error', {
         timeOut: 3000,
       });
       this.activeModal.dismiss('Cross click');
