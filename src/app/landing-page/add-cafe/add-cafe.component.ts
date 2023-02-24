@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageService } from 'src/app/services/image.service';
-class ImageSnippet {
-  pending: boolean = false;
-  status: string = 'init';
 
-  constructor(public src: string, public file: File) {}
-}
+
+import { ImageService } from 'src/app/services/image.service';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-add-cafe',
@@ -13,42 +13,92 @@ class ImageSnippet {
   styleUrls: ['./add-cafe.component.scss']
 })
 export class AddCafeComponent implements OnInit {
-  
-  selectedFile!: ImageSnippet;
+  file: any
+  profile: any;
+  imageData: any;
 
-  constructor(private imageService: ImageService){}
+  constructor(private imageService: ImageService, private toastr: ToastrService, private router: Router) {
 
-  private onSuccess() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'ok';
   }
 
-  private onError() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'fail';
-    this.selectedFile.src = '';
+
+  CafeForm = new FormGroup({
+    cafeName: new FormControl(),
+    description: new FormControl(''),
+    price: new FormControl(),
+    location: new FormControl(),
+    image: new FormControl()
+  })
+
+
+
+
+  // onSelectFile(e: any) {
+  //   // console.log(e);
+  //   let reader = new FileReader()
+  //   if (e.target.files[0]) {
+  //     reader.onload = (event:any) => {
+  //       this.url = event.target.result
+  //     }
+  //     reader.readAsDataURL(e.target.files[0]);
+  //   }
+  // }
+  image: any
+  chosen: any
+  addCafeForm() {
+    let cf = new FormData()
+    cf.append('cafeName',this.CafeForm.value.cafeName)
+    cf.append('description',this.CafeForm.value.description)
+    cf.append('price',this.CafeForm.value.price)
+    cf.append('location',this.CafeForm.value.location)
+
+    if(this.image){
+      cf.append('file',this.image)    
+    }else{
+      this.toastr.error('Plz.. select image', 'Error', {
+        timeOut: 3000,
+      });
+      return
+    }
+
+    this.imageService.createCafe(cf).subscribe((success) => {
+      console.log(success);
+      this.toastr.success('Cafe details added successfully, wait for admins approvement!!', 'Success', {
+        timeOut: 2000,
+      });
+      this.router.navigate(['/landing-page/book-table'])
+    }, (err) => {
+      console.log("err", err);
+
+    })
+    this.imageData = null
+
+
   }
 
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
 
-    reader.addEventListener('load', (event: any) => {
+  onSelectFile(e: any) {  
+    if (e.target.value) {
+      this.image = e.target.files[0];
+      // console.log(this.image);
+      
+      this.chosen = true
+    }
+    const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"]
+    
 
-      this.selectedFile = new ImageSnippet(event.target.result, file);
+    if (this.image && allowedMimeTypes.includes(this.image.type)) {
+      let reader = new FileReader()
+      reader.onload = () => {
+        this.imageData = reader.result
+      }
+      reader.readAsDataURL(this.image);
+    }
 
-      this.selectedFile.pending = true;
-      this.imageService.uploadImage(this.selectedFile.file).subscribe(
-        (res) => {
-          this.onSuccess();
-        },
-        (err) => {
-          this.onError();
-        })
-    });
 
-    reader.readAsDataURL(file);
+
   }
+
 
   ngOnInit(): void {
   }

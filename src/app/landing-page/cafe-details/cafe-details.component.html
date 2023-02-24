@@ -1,0 +1,38 @@
+<div class="container-fluid" >
+    <section class="cafe-details">
+      <div class="container">
+          <div class="row justify-content-center content-height">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Sr No.</th>
+                    <th scope="col">Cafe Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Cafe Image</th> 
+                    <th scope="col">Approval</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of arr; let i=index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{c.cafeName}}</td>
+                    <td>{{c.location}}</td>
+                    <td>{{c.price}}</td>
+                    <td >
+                        <img [src]= "c.imageUrl" height="60px">
+                    </td>
+                    <td>
+                        <button class="btn btn-success rounded-1 btn-sm">Accept</button>&nbsp;
+                        <button class="btn btn-danger rounded-1 btn-sm">Reject</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            
+            
+          </div>
+      </div>
+    </section>
+  </div>
