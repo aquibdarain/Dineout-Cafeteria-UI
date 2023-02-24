@@ -7,8 +7,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginModalComponent } from '../modal/login-modal/login-modal.component';
 import { RegisterModalComponent } from '../modal/register-modal/register-modal.component';
 
-
-
 var routes : Routes = [
   {
     path:'login', component: LoginComponent
