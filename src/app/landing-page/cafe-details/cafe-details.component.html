@@ -3,6 +3,9 @@
       <div class="container">
           <div class="row justify-content-center content-height">
             <table class="table table-hover">
+              <div *ngIf="!this.arr.length">
+                <h5 class="py-4 ps-2">No Approval !!</h5>
+              </div>
                 <thead>
                   <tr>
                     <th scope="col">Sr No.</th>

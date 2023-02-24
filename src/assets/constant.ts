@@ -1,6 +1,6 @@
 export const constant = {
     time: [
-        { id: '0', name: '12 am' },
+        { id: '0', name: '12:00 am' },
         { id: '1', name: '12:30 am' },
         { id: '2', name: '1:00 am' },
         { id: '3', name: '1:30 am' },
@@ -24,7 +24,7 @@ export const constant = {
         { id: '21', name: '10:30 am' },
         { id: '22', name: '11:00 am' },
         { id: '23', name: '11:30 am' },
-        { id: '0', name: '12 pm' },
+        { id: '0', name: '12:00 pm' },
         { id: '1', name: '12:30 pm' },
         { id: '2', name: '1:00 pm' },
         { id: '3', name: '1:30 pm' },
