@@ -24,6 +24,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 import { CafeDetailsComponent } from './cafe-details/cafe-details.component';
 import { appSanitizeHtmlDirective } from '../directive/sanitize-html.directive';
 import { SafeHtmlPipePipe } from '../pipe/safe-html-pipe.pipe';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
 
 
 
@@ -48,6 +49,9 @@ var routes: Routes = [
       },
       {
         path: 'view-table', component: ViewTableComponent, canActivate: [AuthGuard]
+      },
+      {
+        path: 'booking-details', component: BookingDetailsComponent, canActivate: [AuthGuard]
       },
       {
         path: 'add-cafe', component: AddCafeComponent
@@ -82,7 +86,8 @@ var routes: Routes = [
     FileUploadComponent,
     CafeDetailsComponent,
     appSanitizeHtmlDirective,
-    SafeHtmlPipePipe
+    SafeHtmlPipePipe,
+    BookingDetailsComponent
     
   ],
   imports: [

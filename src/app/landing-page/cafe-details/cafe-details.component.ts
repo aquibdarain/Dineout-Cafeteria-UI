@@ -18,6 +18,8 @@ export class CafeDetailsComponent implements OnInit {
     this.imageService.getCafeDetails().subscribe((success: any) => {
       // this.arr = success
       // console.log(success[0]);
+      console.log(this.arr);
+      
       this.arr = success.map((s: any) => {
         // console.log(s['data']);
         let TYPED_ARRAY = new Uint8Array(s['data'].file.data);

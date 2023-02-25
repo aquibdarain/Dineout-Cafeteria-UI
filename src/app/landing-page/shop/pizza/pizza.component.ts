@@ -93,6 +93,8 @@ export class PizzaComponent implements OnInit {
         userId: obj.userId
       }
     ).subscribe((success: any) => {
+      console.log("success",success);
+      
       if (success != null) {
         let prodId = success.productId
         let quantity = success.quantity

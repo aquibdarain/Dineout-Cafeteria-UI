@@ -32,13 +32,19 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon3">Enter name</span>
                             </div>
-                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                            <input type="text" class="form-control" formControlName="name" id="basic-url" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Phone</span>
+                            </div>
+                            <input type="number" class="form-control" formControlName="phone" id="basic-url" aria-describedby="basic-addon3">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon3">Enter email</span>
                             </div>
-                            <input type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                            <input type="email" class="form-control" formControlName="email" id="basic-url" aria-describedby="basic-addon3">
                         </div>
                         <div class="mb-3">
                             <select class="form-control form-select" formControlName="noOfPerson">
@@ -59,7 +65,9 @@
                             <option [value]="t.name" *ngFor="let t of time">{{t.name}}</option>
                         </select>
 
-
+                        <div class="d-grid pt-3">
+                            <button class="btn btn-dark" (click)="bookTable()">Book Now</button>
+                        </div>
                     </div>
                 </form>
             </div>

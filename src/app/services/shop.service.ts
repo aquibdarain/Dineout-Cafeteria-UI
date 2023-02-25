@@ -20,6 +20,10 @@ export class ShopService {
     let url = 'http://localhost:2022/api/reservation'
     return this.http.post(url,obj);
   }
+  getBookingDetails(){
+    let url = 'http://localhost:2022/api/getBookingDetails'
+    return this.http.get(url);
+  }
 
   addToCart(obj: any){
     let url = 'http://localhost:2022/api/addToCart'

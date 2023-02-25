@@ -129,19 +129,10 @@ export class CheckoutComponent implements OnInit {
     this.shopService.addOrder(this.PayForOrder.value).subscribe((success) => {
       console.log(success);
       if (success) {
-        this.shopService.destroyCart().subscribe((success) => {
-          this.shopService.getProduct().subscribe((success: any) => {
-            let count = 0;
-            for (let item of success) {
-              count += item.quantity;
-            }
-            this.shopService.SharingData.next((count))
-          })
           this.modalService.dismissAll();
-          this.router.navigate(['/landing-page/order']);
+          this.router.navigate(['/landing-page/view-cart']);
 
           this.spinner.hide();
-        })
 
 
       }
