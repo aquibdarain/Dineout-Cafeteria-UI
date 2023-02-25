@@ -37,6 +37,10 @@ export class LoginModalComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+   this.SignInForm.patchValue({
+      email: "admin@gmail.com",
+      password: "admin@123"
+    })
   }
 
   signIn() {
@@ -48,8 +52,7 @@ export class LoginModalComponent implements OnInit {
         this.activeModal.dismiss()
 
         // this.authService.userToken.next(userData)
-        this.router.navigate(['/landing-page/home'])
-
+        
         this.shopService.getProduct().subscribe((success: any) => {
           let count = 0;
           for (let item of success) {
@@ -61,6 +64,13 @@ export class LoginModalComponent implements OnInit {
         this.toastr.success('Sign In successful !!', 'Success', {
           timeOut: 3000,
         });
+        this.authService.getUserDetailsByToken().subscribe((data:any)=>{
+          // console.log(data);
+          
+          this.authService.role.next((data.role.toLowerCase()))
+        })
+          this.router.navigate(['/landing-page/home'])
+
         
         return
       }

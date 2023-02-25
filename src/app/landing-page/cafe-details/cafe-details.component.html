@@ -26,8 +26,8 @@
                         <img [src]= "c.imageUrl" height="60px">
                     </td>
                     <td>
-                        <button class="btn btn-success rounded-1 btn-sm">Accept</button>&nbsp;
-                        <button class="btn btn-danger rounded-1 btn-sm">Reject</button>
+                        <button class="btn btn-success rounded-1 btn-sm" (click)="cafeApproval(c.id)">Accept</button>&nbsp;
+                        <button class="btn btn-danger rounded-1 btn-sm" (click)="cafeReject(c.id)">Reject</button>
                     </td>
                   </tr>
                 </tbody>

@@ -11,8 +11,10 @@ import { timeStamp } from 'console';
 export class AuthService {
 
   userToken = new Subject();
+  role = new Subject();
 
   constructor(private http: HttpClient) { 
+    
   }
 
 
@@ -38,8 +40,8 @@ export class AuthService {
     return localStorage.getItem('userToken')
   }
 
-  getUserIdByToken(){
-    let url = `http://localhost:2022/api/sendUserId`
+  getUserDetailsByToken(){
+    let url = `http://localhost:2022/api/sendUserDetails`
     return this.http.get(url)
   }
 

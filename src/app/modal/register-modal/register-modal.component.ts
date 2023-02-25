@@ -18,6 +18,7 @@ export class RegisterModalComponent implements OnInit {
     phone: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
+    role: new FormControl('User'),
   })
 
   get firstName() {
@@ -48,7 +49,7 @@ export class RegisterModalComponent implements OnInit {
       firstName: "abc",
       lastName: "abc",
       password: "abc",
-      phone:  7689877899
+      phone: 7689877899
     })
   }
 
@@ -57,7 +58,7 @@ export class RegisterModalComponent implements OnInit {
   signUp() {
     let obj = this.SignUpForm.value
     this.authService.userRegister(obj).subscribe((success: any) => {
-      // console.log(success.msg);
+      // console.log(success);
       if (success.token) {
         localStorage.setItem('userToken', success.token)
 
@@ -65,6 +66,10 @@ export class RegisterModalComponent implements OnInit {
           timeOut: 3000,
         });
         this.activeModal.dismiss('Cross click');
+
+        this.authService.getUserDetailsByToken().subscribe((data: any) => {
+          this.authService.role.next((data.role.toLowerCase()))
+        })
       }
     }, (err) => {
       // console.log(err.error.msg);

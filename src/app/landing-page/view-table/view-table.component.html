@@ -6,12 +6,12 @@
                     <div class="col-lg-9">
                         <div class="container">
                             <div class="card">
-                                <img [src]="data['img']" [alt]="data['productName']" class="img-responsive">
+                                <img [src]="imageUrl" class="img-responsive">
                                 <div class="card-body">
                                     <div class="d-flex flex-column text-start px-1 card-details">
-                                        <h5 class="fw-bold">{{data['productName']}}</h5>
-                                        <p>{{data['description']}}</p>
-                                        <p>₹ {{data['price']}} for 2 (approx) |</p>
+                                        <h5 class="fw-bold">{{this.data['cafeName']}}</h5>
+                                        <p>{{this.data['description']}}</p>
+                                        <p>₹ {{this.data['price']}} for 2 (approx) |</p>
                                     </div>
                                 </div>
                             </div>

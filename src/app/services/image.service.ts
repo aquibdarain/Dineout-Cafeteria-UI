@@ -13,12 +13,31 @@ export class ImageService {
 
 
 
-  createCafe(data: any){
-    let url = 'http://localhost:2022/api/addCafe'
+  createCafe(data: any, id: any){
+    let url = `http://localhost:2022/api/addCafe/${id}`
     return this.http.post<any>(url, data)
   }
-  getCafeDetails(){
-    let url = 'http://localhost:2022/api/getCafeDetails'
+  getUnapprovedCafeDetails(){
+    let url = 'http://localhost:2022/api/getUnapprovedCafeDetails'
     return this.http.get(url)
+  }
+  getApprovedCafeDetails(){
+    let url = 'http://localhost:2022/api/getApprovedCafeDetails'
+    return this.http.get(url)
+  }
+  getApprovedCafeDetailsById(id:number){
+    let url = `http://localhost:2022/api/getApprovedCafeDetailsById/${id}`
+    return this.http.get(url)
+  }
+
+  cafeApprovalByAdmin(id: number, obj: any){
+    let url = `http://localhost:2022/api/cafeApproval/${id}`
+    return this.http.put(url,obj)
+  }
+
+  cafeRejectByAdmin(id: number){
+    let url = `http://localhost:2022/api/deleteCafe/${id}`
+    return this.http.delete(url);
+
   }
 }
