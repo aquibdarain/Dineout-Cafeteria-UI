@@ -54,7 +54,7 @@ var routes: Routes = [
         path: 'booking-details', component: BookingDetailsComponent, canActivate: [AuthGuard]
       },
       {
-        path: 'add-cafe', component: AddCafeComponent
+        path: 'add-cafe', component: AddCafeComponent,canActivate: [AuthGuard]
       },
       {
         path: 'cafe-details', component: CafeDetailsComponent, canActivate: [AuthGuard]
