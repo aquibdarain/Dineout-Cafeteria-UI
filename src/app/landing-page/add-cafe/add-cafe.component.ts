@@ -5,6 +5,7 @@ import { ImageService } from 'src/app/services/image.service';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router'
+import { AuthService } from 'src/app/services/auth service/auth.service';
 
 
 @Component({
@@ -16,8 +17,9 @@ export class AddCafeComponent implements OnInit {
   file: any
   profile: any;
   imageData: any;
+  userId: number = -1;
 
-  constructor(private imageService: ImageService, private toastr: ToastrService, private router: Router) {
+  constructor(private imageService: ImageService, private toastr: ToastrService, private router: Router, private authService: AuthService) {
 
   }
 
@@ -27,7 +29,7 @@ export class AddCafeComponent implements OnInit {
     description: new FormControl(''),
     price: new FormControl(),
     location: new FormControl(),
-    image: new FormControl()
+    image: new FormControl(),
   })
 
 
@@ -51,6 +53,7 @@ export class AddCafeComponent implements OnInit {
     cf.append('description',this.CafeForm.value.description)
     cf.append('price',this.CafeForm.value.price)
     cf.append('location',this.CafeForm.value.location)
+    cf.append('status','false')
 
     if(this.image){
       cf.append('file',this.image)    
@@ -61,7 +64,7 @@ export class AddCafeComponent implements OnInit {
       return
     }
 
-    this.imageService.createCafe(cf).subscribe((success) => {
+    this.imageService.createCafe(cf, this.userId).subscribe((success) => {
       console.log(success);
       this.toastr.success('Cafe details added successfully, wait for admins approvement!!', 'Success', {
         timeOut: 2000,
@@ -95,12 +98,13 @@ export class AddCafeComponent implements OnInit {
       reader.readAsDataURL(this.image);
     }
 
-
-
   }
 
 
   ngOnInit(): void {
+    this.authService.getUserDetailsByToken().subscribe((data:any)=>{
+      this.userId = data.id
+    })
   }
 
 }

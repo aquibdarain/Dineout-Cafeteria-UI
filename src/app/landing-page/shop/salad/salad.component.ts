@@ -73,7 +73,7 @@ export class SaladComponent implements OnInit {
   }
 
   getUserId() {
-    this.authService.getUserIdByToken().subscribe((success: any) => {
+     this.authService.getUserDetailsByToken().subscribe((success: any) => {
       this.id = success.id
       console.log(this.id);
     })

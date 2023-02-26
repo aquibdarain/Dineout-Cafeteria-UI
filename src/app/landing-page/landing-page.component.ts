@@ -15,6 +15,7 @@ import { AuthService } from '../services/auth service/auth.service';
 export class LandingPageComponent implements OnInit {
 
   itemCount: any = 0;
+  role: any = ''
 
   constructor(private router: Router,
     private shopService: ShopService,
@@ -38,6 +39,26 @@ export class LandingPageComponent implements OnInit {
 
     this.getSumOfQuantity()
 
+
+
+    this.authService.getUserDetailsByToken().subscribe((data: any) => {
+      this.role = data.role.toLowerCase()
+    })
+
+
+
+  }
+
+  ngOnInit(): void {
+    this.shopService.SharingData.subscribe((success) => {
+      this.itemCount = success
+    })
+
+    
+    this.authService.role.subscribe((data: any) => {
+      this.role = data
+    })
+
   }
 
   getSumOfQuantity() {
@@ -48,14 +69,6 @@ export class LandingPageComponent implements OnInit {
       }
       this.itemCount = count;
     })
-  }
-
-  ngOnInit(): void {
-    this.shopService.SharingData.subscribe((success) => {
-      this.itemCount = success
-    })
-
-
   }
 
   public isMenuCollapsed = true;
@@ -106,6 +119,7 @@ export class LandingPageComponent implements OnInit {
     this.router.navigate(['/landing-page/home'])
 
     this.shopService.SharingData.next(0);
+    this.authService.role.next('')
   }
 }
 
