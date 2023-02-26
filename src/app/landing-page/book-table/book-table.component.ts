@@ -14,60 +14,60 @@ import { ImageService } from 'src/app/services/image.service';
 })
 export class BookTableComponent implements OnInit {
   tables: any = [
-    // {
-    //   cafeName: "Moti Mahal Delux Restaurant",
-    //   price: 900,
-    //   description: "Sitabuldi, Central Nagpur",
-    //   // quantity: 1,
-    //   imageUrl: "../../../assets/img/p79163-1616568809605ae1e9ac4a6.jpg",
-    //   productId: 1
+    {
+      cafeName: "Moti Mahal Delux Restaurant",
+      price: 900,
+      description: "Sitabuldi, Central Nagpur",
+      // quantity: 1,
+      imageUrl: "../../../assets/img/p79163-1616568809605ae1e9ac4a6.jpg",
+      productId: 1
 
-    // },
-    // {
-    //   cafeName: "Kalpataru",
-    //   price: 1600,
-    //   description: "Sitabuldi, Central Nagpur",
-    //   // quantity: 1,
-    //   imageUrl: "../../../assets/img/p58940-15738954735dcfbd31359fd.jpg",
-    //   productId: 2
+    },
+    {
+      cafeName: "Kalpataru",
+      price: 1600,
+      description: "Sitabuldi, Central Nagpur",
+      // quantity: 1,
+      imageUrl: "../../../assets/img/p58940-15738954735dcfbd31359fd.jpg",
+      productId: 2
 
-    // },
-    // {
-    //   cafeName: "Jagat Restaurant",
-    //   price: 600,
-    //   description: "Sitabuldi, Central Nagpur",
-    //   // quantity: 1,
-    //   imageUrl: "../../../assets/img/p67190-15738850775dcf9495e974a.jpg",
-    //   productId: 3
+    },
+    {
+      cafeName: "Jagat Restaurant",
+      price: 600,
+      description: "Sitabuldi, Central Nagpur",
+      // quantity: 1,
+      imageUrl: "../../../assets/img/p67190-15738850775dcf9495e974a.jpg",
+      productId: 3
 
-    // },
-    // {
-    //   cafeName: "TDS Restro Lounge",
-    //   price: 1900,
-    //   description: "Sitabuldi, Central Nagpur",
-    //   // quantity: 1,
-    //   imageUrl: "../../../assets/img/p62435-15656780745d5259fa8ddd9.jpg",
-    //   productId: 4
+    },
+    {
+      cafeName: "TDS Restro Lounge",
+      price: 1900,
+      description: "Sitabuldi, Central Nagpur",
+      // quantity: 1,
+      imageUrl: "../../../assets/img/p62435-15656780745d5259fa8ddd9.jpg",
+      productId: 4
 
-    // },
-    // {
-    //   cafeName: "Hotel Brijinn",
-    //   price: 2100,
-    //   description: "Sitabuldi, Central Nagpur",
-    //   // quantity: 1,
-    //   imageUrl: "../../../assets/img/p59990-15625680955d22e59ff0c9e.jpg",
-    //   productId: 5
+    },
+    {
+      cafeName: "Hotel Brijinn",
+      price: 2100,
+      description: "Sitabuldi, Central Nagpur",
+      // quantity: 1,
+      imageUrl: "../../../assets/img/p59990-15625680955d22e59ff0c9e.jpg",
+      productId: 5
 
-    // },
-    // {
-    //   cafeName: "Dessertz & More",
-    //   price: 600,
-    //   description: "Sitabuldi, Central Nagpur",
-    //   // quantity: 1,
-    //   imageUrl: "../../../assets/img/p58938-15732780005dc6513036a41.jpg",
-    //   productId: 6
+    },
+    {
+      cafeName: "Dessertz & More",
+      price: 600,
+      description: "Sitabuldi, Central Nagpur",
+      // quantity: 1,
+      imageUrl: "../../../assets/img/p58938-15732780005dc6513036a41.jpg",
+      productId: 6
 
-    // },
+    },
   ]
 
   viewTable = (id: number) => {
@@ -105,15 +105,15 @@ export class BookTableComponent implements OnInit {
         let base64String = btoa(STRING_CHAR);
         const imageurl = this.domSanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64, ' + base64String);
         // this.imageurl = "data:image/jpeg;base64," + base64String
-        
+
         return { imageUrl: imageurl, id: s['data'].id, cafeName: s['data'].cafeName, description: s['data'].description, location: s['data'].location, price: s['data'].price }
       })
-      
+
       this.tables.push(...data);
       console.log(this.tables);
-      
-      
-      
+
+
+
 
 
     })
