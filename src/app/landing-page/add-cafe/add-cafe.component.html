@@ -15,7 +15,8 @@
           </div>
           <div class="col-lg-4 col-sm-12 mb-4">
             <div class="imageData">
-              <img [src]="imageData" height="200">
+              <img *ngIf="this.imageData" [src]="imageData" height="200">
+              <img *ngIf="!this.imageData" src="../../../assets/img/choose_img.webp" height="200">
             </div>
             <div class="text-md-ceter text-lg-center pt-2">
               <input type="file" name="file" (input)="onSelectFile($event)">

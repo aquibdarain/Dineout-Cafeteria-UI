@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from 'src/app/services/shop.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth service/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-view-cart',
@@ -18,11 +19,16 @@ export class ViewCartComponent implements OnInit {
 
   constructor(private shopService: ShopService,
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private toastr: ToastrService
+
+  ) {
+
+    this.getUserId()
+
+  }
 
   ngOnInit(): void {
-    this.getUserId()
   }
 
   getCartDetailsByUserId() {
@@ -89,6 +95,9 @@ export class ViewCartComponent implements OnInit {
 
       //get itemCount
       this.getCartDetailsByUserId();
+      this.toastr.warning('Your item has been removed successfully !!', 'Delete', {
+        timeOut: 2000,
+      });
 
     }, (error) => {
       console.log("error", error);

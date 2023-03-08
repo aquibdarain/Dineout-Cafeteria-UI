@@ -37,10 +37,10 @@ export class LoginModalComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
-   this.SignInForm.patchValue({
-      email: "admin@gmail.com",
-      password: "admin@123"
-    })
+  //  this.SignInForm.patchValue({
+  //     email: "admin@gmail.com",
+  //     password: "admin@123"
+  //   })
   }
 
   signIn() {

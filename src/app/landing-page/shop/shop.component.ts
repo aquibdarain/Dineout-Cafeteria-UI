@@ -11,6 +11,10 @@ export class ShopComponent implements OnInit {
 
   item = "";
 
+  onActivate(){
+    window.scroll(0,0);
+  }
+
   public isMenuCollapsed = true;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
@@ -21,29 +25,29 @@ export class ShopComponent implements OnInit {
     })
   }
 
-  Pizza(){
-    this.router.navigate(['/landing-page/shop/pizza'],{
+  Pizza() {
+    this.router.navigate(['/landing-page/shop/pizza'], {
       queryParams: {
         item: 'pizza'
       }
     })
   }
-  Salads(){
-    this.router.navigate(['/landing-page/shop/salads'],{
+  Salads() {
+    this.router.navigate(['/landing-page/shop/salads'], {
       queryParams: {
         item: 'salads'
       }
     })
   }
-  Soups(){
-    this.router.navigate(['/landing-page/shop/soups'],{
+  Soups() {
+    this.router.navigate(['/landing-page/shop/soups'], {
       queryParams: {
         item: 'soups'
       }
     })
   }
-  Desserts(){
-    this.router.navigate(['/landing-page/shop/desserts'],{
+  Desserts() {
+    this.router.navigate(['/landing-page/shop/desserts'], {
       queryParams: {
         item: 'desserts'
       }

@@ -44,13 +44,13 @@ export class RegisterModalComponent implements OnInit {
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.SignUpForm.patchValue({
-      email: "abc@gmail.com",
-      firstName: "abc",
-      lastName: "abc",
-      password: "abc",
-      phone: 7689877899
-    })
+    // this.SignUpForm.patchValue({
+    //   email: "abc@gmail.com",
+    //   firstName: "abc",
+    //   lastName: "abc",
+    //   password: "abc",
+    //   phone: 7689877899
+    // })
   }
 
 
