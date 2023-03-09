@@ -118,6 +118,35 @@ export class ViewTableComponent implements OnInit {
 
   }
 
+  Pizza() {
+    this.router.navigate(['/landing-page/shop/pizza'], {
+      queryParams: {
+        item: 'pizza'
+      }
+    })
+  }
+  Salads() {
+    this.router.navigate(['/landing-page/shop/salads'], {
+      queryParams: {
+        item: 'salads'
+      }
+    })
+  }
+  Soups() {
+    this.router.navigate(['/landing-page/shop/soups'], {
+      queryParams: {
+        item: 'soups'
+      }
+    })
+  }
+  Desserts() {
+    this.router.navigate(['/landing-page/shop/desserts'], {
+      queryParams: {
+        item: 'desserts'
+      }
+    })
+  }
+
   ngOnInit(): void {
   }
 

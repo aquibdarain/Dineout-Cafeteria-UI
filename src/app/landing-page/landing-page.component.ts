@@ -17,6 +17,10 @@ export class LandingPageComponent implements OnInit {
   itemCount: any = 0;
   role: any = ''
 
+  onActivate(){
+    window.scroll(0,0)
+  }
+
   constructor(private router: Router,
     private shopService: ShopService,
     private modalService: NgbModal,
@@ -44,17 +48,16 @@ export class LandingPageComponent implements OnInit {
     this.authService.getUserDetailsByToken().subscribe((data: any) => {
       this.role = data.role.toLowerCase()
     })
-
-
-
   }
+
+
 
   ngOnInit(): void {
     this.shopService.SharingData.subscribe((success) => {
       this.itemCount = success
     })
 
-    
+
     this.authService.role.subscribe((data: any) => {
       this.role = data
     })

@@ -8,6 +8,7 @@ import { ShopService } from 'src/app/services/shop.service';
 import { format } from 'path';
 import { Router } from '@angular/router';
 import { timeout } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
@@ -28,7 +29,8 @@ export class CheckoutComponent implements OnInit {
     private notificationsService: NotificationsService,
     private activatedRoute: ActivatedRoute,
     private shopService: ShopService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.activatedRoute.queryParams.subscribe((data: any) => {
       let obj = data.params
@@ -129,11 +131,13 @@ export class CheckoutComponent implements OnInit {
     this.shopService.addOrder(this.PayForOrder.value).subscribe((success) => {
       console.log(success);
       if (success) {
-          this.modalService.dismissAll();
-          this.router.navigate(['/landing-page/view-cart']);
+        this.modalService.dismissAll();
+        this.router.navigate(['/landing-page/view-cart']);
 
-          this.spinner.hide();
-
+        this.spinner.hide();
+        this.toastr.success('Your order has been booked successfully !!', 'Success', {
+          timeOut: 2000,
+        });
 
       }
 

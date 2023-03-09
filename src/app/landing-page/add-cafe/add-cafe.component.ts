@@ -20,7 +20,8 @@ export class AddCafeComponent implements OnInit {
   userId: number = -1;
 
   constructor(private imageService: ImageService, private toastr: ToastrService, private router: Router, private authService: AuthService) {
-
+    console.log(this.imageData);
+    
   }
 
 

@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </li> -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <div ngbDropdown class="d-inline-block">
                         <button type="button" class="btn btn-outline-light text-dark nav-link" id="dropdownBasic1"
                             ngbDropdownToggle>
@@ -44,7 +44,7 @@
                             <a (click)="Desserts()" ngbDropdownItem>Desserts</a>
                         </div>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/landing-page/book-table" (click)="isMenuCollapsed = true"
                         style="padding-top: 10px;">Book Table</a>
@@ -77,9 +77,12 @@
             </ul>
             <div class="row">
                 <div class="col-auto ms-auto">
-                    <button class="btn btn-sm btn-outline-success mt-2 px-3" *ngIf="!authService.loggedIn()" (click)="openLoginContent()">Sign In</button>&nbsp;
-                    <button class="btn btn-sm btn-outline-primary mt-2 px-3" *ngIf="!authService.loggedIn()" (click)="openRegisterContent()">Sign Up</button>&nbsp;
-                    <button class="btn btn-sm btn-outline-danger mt-2 px-3" *ngIf="authService.loggedIn()" (click)="signOut()">Sign Out</button>
+                    <button class="btn btn-sm btn-outline-success mt-2 px-3" *ngIf="!authService.loggedIn()"
+                        (click)="openLoginContent()">Sign In</button>&nbsp;
+                    <button class="btn btn-sm btn-outline-primary mt-2 px-3" *ngIf="!authService.loggedIn()"
+                        (click)="openRegisterContent()">Sign Up</button>&nbsp;
+                    <button class="btn btn-sm btn-outline-danger mt-2 px-3" *ngIf="authService.loggedIn()"
+                        (click)="signOut()">Sign Out</button>
                 </div>
             </div>
         </div>
@@ -88,7 +91,7 @@
 <!-- nav-end -->
 
 
-<router-outlet>
+<router-outlet (activate)="onActivate()">
 </router-outlet>
 
 <!-- cart payment package -->
