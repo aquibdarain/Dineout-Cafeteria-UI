@@ -5,6 +5,7 @@ import { ShopService } from '../services/shop.service';
 import { LoginModalComponent } from '../modal/login-modal/login-modal.component';
 import { RegisterModalComponent } from '../modal/register-modal/register-modal.component';
 import { AuthService } from '../services/auth service/auth.service';
+import { CafeOwnerModalComponent } from '../modal/cafe-owner-modal/cafe-owner-modal.component';
 
 
 @Component({
@@ -113,6 +114,10 @@ export class LandingPageComponent implements OnInit {
 
   openRegisterContent() {
     const modalRef = this.modalService.open(RegisterModalComponent, { centered: true });
+    modalRef.componentInstance.name = 'SignUp';
+  }
+  openRegisterCafeOwnerContent() {
+    const modalRef = this.modalService.open(CafeOwnerModalComponent, { centered: true });
     modalRef.componentInstance.name = 'SignUp';
   }
 

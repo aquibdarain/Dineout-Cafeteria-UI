@@ -19,6 +19,7 @@ import { MenuComponent } from './landing-page/menu/menu.component';
 import { AuthService } from './services/auth service/auth.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthGuard } from './auth.guard';
+import { CafeOwnerModalComponent } from './modal/cafe-owner-modal/cafe-owner-modal.component';
 
 
 
@@ -43,6 +44,7 @@ var routes:Routes = [
     LandingPageComponent,
     FooterComponent,
     MenuComponent,
+    CafeOwnerModalComponent,
   
   ],
   imports: [

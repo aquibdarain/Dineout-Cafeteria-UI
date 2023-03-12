@@ -4,14 +4,24 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth service/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-register-modal',
-  templateUrl: './register-modal.component.html',
-  styleUrls: ['./register-modal.component.scss']
+  selector: 'app-cafe-owner-modal',
+  templateUrl: './cafe-owner-modal.component.html',
+  styleUrls: ['./cafe-owner-modal.component.scss']
 })
-export class RegisterModalComponent implements OnInit {
+export class CafeOwnerModalComponent implements OnInit {
 
+  constructor(public activeModal: NgbActiveModal,
+    private authService: AuthService,
+    private toastr: ToastrService) { 
+
+      
+    }
+
+  ngOnInit(): void {
+  }
+
+  
   
   SignUpForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -19,7 +29,7 @@ export class RegisterModalComponent implements OnInit {
     phone: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
-    role: new FormControl('User'),
+    role: new FormControl('Admin'),
   })
 
   get firstName() {
@@ -40,25 +50,7 @@ export class RegisterModalComponent implements OnInit {
 
   @Input() name: any;
 
-  constructor(public activeModal: NgbActiveModal,
-    private authService: AuthService,
-    private toastr: ToastrService) { 
-
-      
-    }
-
-  ngOnInit(): void {
-    // this.SignUpForm.patchValue({
-    //   email: "abc@gmail.com",
-    //   firstName: "abc",
-    //   lastName: "abc",
-    //   password: "abc",
-    //   phone: 7689877899
-    // })
-  }
-
-
-
+  
   signUp() {
     let obj = this.SignUpForm.value
     this.authService.userRegister(obj).subscribe((success: any) => {
