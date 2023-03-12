@@ -48,6 +48,7 @@ export class LandingPageComponent implements OnInit {
 
     this.authService.getUserDetailsByToken().subscribe((data: any) => {
       this.role = data.role.toLowerCase()
+      
     })
   }
 
@@ -58,9 +59,11 @@ export class LandingPageComponent implements OnInit {
       this.itemCount = success
     })
 
+    console.log('role',this.role);
 
     this.authService.role.subscribe((data: any) => {
       this.role = data
+
     })
 
   }
