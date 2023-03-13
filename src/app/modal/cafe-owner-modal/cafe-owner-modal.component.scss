@@ -1,0 +1,28 @@
+.poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-red {
+    background-color: #ff0018;
+}
+
+.text-red {
+    color: #ff0018;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+
+.form-control.ng-touched.ng-valid{
+    border: 1px solid green;
+}

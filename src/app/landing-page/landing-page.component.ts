@@ -5,6 +5,7 @@ import { ShopService } from '../services/shop.service';
 import { LoginModalComponent } from '../modal/login-modal/login-modal.component';
 import { RegisterModalComponent } from '../modal/register-modal/register-modal.component';
 import { AuthService } from '../services/auth service/auth.service';
+import { CafeOwnerModalComponent } from '../modal/cafe-owner-modal/cafe-owner-modal.component';
 
 
 @Component({
@@ -47,6 +48,7 @@ export class LandingPageComponent implements OnInit {
 
     this.authService.getUserDetailsByToken().subscribe((data: any) => {
       this.role = data.role.toLowerCase()
+      
     })
   }
 
@@ -57,9 +59,11 @@ export class LandingPageComponent implements OnInit {
       this.itemCount = success
     })
 
+    console.log('role',this.role);
 
     this.authService.role.subscribe((data: any) => {
       this.role = data
+
     })
 
   }
@@ -113,6 +117,10 @@ export class LandingPageComponent implements OnInit {
 
   openRegisterContent() {
     const modalRef = this.modalService.open(RegisterModalComponent, { centered: true });
+    modalRef.componentInstance.name = 'SignUp';
+  }
+  openRegisterCafeOwnerContent() {
+    const modalRef = this.modalService.open(CafeOwnerModalComponent, { centered: true });
     modalRef.componentInstance.name = 'SignUp';
   }
 
